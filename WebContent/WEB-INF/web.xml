@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>mainproject</display-name>
+  <welcome-file-list>
+    <welcome-file>main.html</welcome-file>
+    
+  </welcome-file-list>
+  <servlet>
+        <servlet-name>adminlogin1</servlet-name>
+        <servlet-class>adminlogin1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminlogin1</servlet-name>
+        <url-pattern>/adminlogin1</url-pattern>
+    </servlet-mapping>
+   <servlet>
+        <servlet-name>adminregistration1</servlet-name>
+        <servlet-class>adminregistation1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminregistration1</servlet-name>
+        <url-pattern>/adminregistration1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Hrlog</servlet-name>
+        <servlet-class>Hrlog</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Hrlog</servlet-name>
+        <url-pattern>/Hrlog</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Hrreg</servlet-name>
+        <servlet-class>Hrreg</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Hrreg</servlet-name>
+        <url-pattern>/Hrreg</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>candidatelogin1</servlet-name>
+        <servlet-class>candidatelogin1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>candidatelogin1</servlet-name>
+        <url-pattern>/candidatelogin1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>cregistration1</servlet-name>
+        <servlet-class>cregistration1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cregistration1</servlet-name>
+        <url-pattern>/cregistration1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+  	<servlet-name>Add_Applicant</servlet-name>
+  	<servlet-class>Add_Applicant</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Add_Applicant</servlet-name>
+  	<url-pattern>/Add_Applicant</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>Show_Application</servlet-name>
+  	<servlet-class>Show_Application</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Show_Application</servlet-name>
+  	<url-pattern>/Show_Application</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Edits</servlet-name>
+  	<servlet-class>Edits</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Edits</servlet-name>
+  	<url-pattern>/Edits</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Show_jobs</servlet-name>
+  	<servlet-class>Show_jobs</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Show_jobs</servlet-name>
+  	<url-pattern>/Show_jobs</url-pattern>
+  	
+  </servlet-mapping>
+  <servlet>
+        <servlet-name>details_job</servlet-name>
+        <servlet-class>details_job</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>details_job</servlet-name>
+        <url-pattern>/details_job</url-pattern>
+    </servlet-mapping>
+      <servlet>
+  	<servlet-name>view_applications</servlet-name>
+  	<servlet-class>view_applications</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>view_applications</servlet-name>
+  	<url-pattern>/view_applications</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+  	<servlet-name>Hr_review</servlet-name>
+  	<servlet-class>Hr_review</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Hr_review</servlet-name>
+  	<url-pattern>/Hr_review</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Show_mode</servlet-name>
+  	<servlet-class>Show_mode</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Show_mode</servlet-name>
+  	<url-pattern>/Show_mode</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>Show_result</servlet-name>
+  	<servlet-class>Show_result</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Show_result</servlet-name>
+  	<url-pattern>/Show_result</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>
+</element>
