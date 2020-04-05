@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Job Details</title>
 
 </head>
 <body style="background-color:	#E6E6FA">
@@ -36,26 +36,26 @@
 	<table  class="table table-striped">
 <thead>
 	<tr>
-	
+	<td><b>JobId</b></td>
 	<td><b>Domain</b></td>
 	<td><b>vacancies</b></td>
 	<td><b>last date for applying</b></td>
 	<td><b>Priority</b></td>
 	<td><b>Experience</b></td>
-	<td><b>Click bellow</b></td>
+	<td><b>Click below</b></td>
 	</tr>
 	</thead>
 	<%
 	try{ 
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Ajay@123");
 	st=conn.createStatement();
-	rs = st.executeQuery("select * from applicants");
+	rs = st.executeQuery("select * from applicant");
 	while(rs.next()){
 	%>
 	<tbody>
 	<tr>
 	
-	
+	<td><%=rs.getString(1) %></td>
 	<td><%=rs.getString(3) %></td>
 	<td><%=rs.getString(4) %></td>
 	<td><%=rs.getString(5) %></td>

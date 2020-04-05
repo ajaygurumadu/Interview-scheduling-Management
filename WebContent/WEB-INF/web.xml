@@ -132,6 +132,22 @@
   	<url-pattern>/Show_result</url-pattern>
   </servlet-mapping>
   
+     <servlet>
+  	<servlet-name>HR_Update_Status</servlet-name>
+  	<servlet-class>HR_Update_Status</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>HR_Update_Status</servlet-name>
+  	<url-pattern>/HR_Update_Status</url-pattern>
+  </servlet-mapping>
+       <servlet>
+  	<servlet-name>Admin_Update_Edit</servlet-name>
+  	<servlet-class>Admin_Update_Edit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Admin_Update_Edit</servlet-name>
+  	<url-pattern>/Admin_Update_Edit</url-pattern>
+  </servlet-mapping>
   
   
 </web-app>

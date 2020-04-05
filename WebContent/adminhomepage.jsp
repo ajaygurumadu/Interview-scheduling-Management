@@ -2,86 +2,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Edit Job Details</title>
-<style>
-    input[type=text], input[type=password], input[type=tel], input[type=number] {
-  width: 60%;
-  padding: 5px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-    form
-    {
-        margin-left: 30px;
-    }
-h1
-{
-    text-align: center;
-}
-.btn {
-  background-color: #ddd;
-  border: 2px;
-  color: black;
-  left:4cm;
-  padding: 16px 32px;
-  text-align: center;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition: 0.3s;
-  border-radius: 15px 50px; 
-}
-.btnn {
-  background-color:chartreuse;
-  
-  color:black;
-  left:14cm;
-  padding: 4px 32px;
-  text-align: center;
-  font-size: 16px;
-  margin: 2px 2px;
-  transition: 0.3s;
-  border-radius: 15px 50px; 
-  width:180px;
-}
-.btnnn {
-  background-color:red;
-  
-  color:black;
-  left:14cm;
-  padding: 4px 32px;
-  text-align: center;
-  font-size: 16px;
-  margin: 2px 2px;
-  transition: 0.3s;
-  border-radius: 15px 50px; 
-  width:180px;
-}
-.btnn:hover {
-  background-color:blue;
-  color: blanchedalmond;
-  }
+<title>Admin Home Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
 
-.btnnn:hover {
-  background-color:blue;
-  color: blanchedalmond;
-  }
-.btn:hover {
-  background-color: #90EE90;
-  color:black;
-  }
-  
-  	.form-control {
+
+	.form-control {
 		box-shadow: none;		
 		font-weight: normal;
 		font-size: 13px;
@@ -252,13 +184,6 @@ h1
 		}
 	}
 </style>
-<script type="text/javascript">
-	// Prevent dropdown menu from closing when click inside the form
-	$(document).on("click", ".navbar-right .dropdown-menu", function(e){
-		e.stopPropagation();
-	});
-</script>
-</head>
 <body>
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header d-flex col">
@@ -272,31 +197,84 @@ h1
 	</div>
 	<!-- Collection of nav links, forms, and other content for toggling -->
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
-		<ul class="nav navbar-nav">
-			<li class="nav-item"><a href="index1.html" class="nav-link">Home</a></li>		
 
-			<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+		<form class="navbar-form form-inline">
+
+		</form>
+		<ul class="nav navbar-nav navbar-right ml-auto">			
+
+			<li class="nav-item">
+			<form class="logout" action="mainlog.html">
+				<a href="logout"  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a>
+			</form>
+			</li>
 		</ul>
 	</div>
 </nav>
-
-
-	<form method="get" action="Edits" style="border:1px solid #ccc">
-	 <div class="container">
-	 <h1><b><i>Edit Job Details</i></b></h1>
-		<table align="center" width="50%" margin-left="auto" margin-right="auto">
-			<tr><td>Job Id</td><td><input class="btn" type="text" name="jobid" required></td></tr>
-			<tr><td>Employee Id</td><td><input class="btn" type="text" name="id" required></td></tr>
-			<tr><td>Domain</td><td><input class="btn"  type="text" name="domain" required></td></tr>
-			<tr><td>Required vacancies</td><td><input class="btn"  type="text" name="vac" required></td></tr>
-			<tr><td>Closing Date</td><td><input class="btn" type="text" name="date" required></td></tr> 
-				<tr><td>Priority</td><td><input  class="btn" type="text" name="priority" required></td></tr> 
-				<tr><td>Minimum experience</td><td><input class="btn"  type="text" name="exp" required></td></tr> 
-			   <tr><td><button class="btnn" type="submit">Submit</button></td>
-			   <td><button class="btnnn" type="submit"><a href="index1.html">Go Back</a></button></td></tr>
-		</table>
-		
-	</form>
+  <div class="row" style="margin-left: auto; margin-right:auto; padding-left:10%; padding-top:6%;">
+  <div class="col-xs-4 col-sm-4 col-lg-4">
+  		<div class="card w-75 p-3" style="width:400px">
+    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
+    	<div class="card-body">
+      		<form method="get" action="ShowHR.jsp">
+				<input class="btn btn-primary" type="submit" value="HR Logs">
+			</form>
+    	</div> 
+    	</div>
+  </div>
+  <div class="col-xs-4 col-sm-4 col-lg-4">
+  		<div class="card w-75 p-3" style="width:400px">
+    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
+    	<div class="card-body">
+			<form method="get" action="ShowUsers.jsp">
+				<input  class="btn btn-primary" type="submit" value="User Logs">
+			</form>
+    	</div> 
+    	</div>
+   </div>
+   <div class="col-xs-4 col-sm-4 col-lg-4">
+  		<div class="card w-75 p-3" style="width:400px">
+    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
+    		<div class="card-body">
+				<form method="get" action="view_applications.jsp">
+				<input class="btn btn-primary" type="submit" value="View Applications">
+				</form>
+    		</div> 
+		</div>
+	</div>
+	</div>
+	<div class="row" style="margin-left: auto; margin-right:auto; padding-left:10%; padding-top:6%;">
+	<div class="col-xs-4 col-sm-4 col-lg-4">
+  		<div class="card w-75 p-3" style="width:400px">
+    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
+    		<div class="card-body">
+				<form method="get" action="Show.jsp">
+				<input class="btn btn-primary" type="submit" value="Manage Posted Jobs">
+				</form>
+    		</div> 
+		</div>
+	</div>
+		<div class="col-xs-4 col-sm-4 col-lg-4">
+  		<div class="card w-75 p-3" style="width:400px">
+    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
+    		<div class="card-body">
+				<form method="get" action="Show_result.jsp">
+				<input class="btn btn-primary" type="submit" value="Result of interview">
+				</form>
+    		</div> 
+		</div>
+	</div>
+			<div class="col-xs-4 col-sm-4 col-lg-4">
+  		<div class="card w-75 p-3" style="width:400px">
+    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
+    		<div class="card-body">
+				<form method="get" action="Admin_Update_Status.jsp">
+				<input class="btn btn-primary" type="submit" value="Update Status">
+				</form>
+    		</div> 
+		</div>
+	</div>
 </div>
+</body>
 </body>
 </html>

@@ -73,7 +73,7 @@ public class adminlogin1 extends HttpServlet {
 			}else{
 				out.println("<script language='Javascript'>");
 				out.println("window.alert('Please Enter Valid Credentials')");
-				out.println("window.location.replace('http://localhost:8090/mainproject/adminlogin1.html')");
+				out.println("window.location.replace('http://localhost:8090/mainproject/adminhomepage.jsp')");
 				out.println("</script>");
 			}
         }

@@ -32,22 +32,34 @@ public class details_job extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        String fname = request.getParameter("reg");
-        String lname = request.getParameter("exp");
-        String age = request.getParameter("d1");
-        String gender = request.getParameter("d2");
-        String number = request.getParameter("number");
+        String jobid = request.getParameter("jobid");
+        String cid = request.getParameter("cid");
+        String name = request.getParameter("name");
+        String hd = request.getParameter("hd");
+        String tgrade = request.getParameter("tgrade");
+        String intergrade = request.getParameter("intergrade");
+        String hdgrade = request.getParameter("hdgrade");
+        String idomain = request.getParameter("idomain");
+        String exp = request.getParameter("exp");
+        String cnumber = request.getParameter("cnumber");
+        String email=request.getParameter("email");
        
     	try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Ajay@123");
 			PreparedStatement ps = conn.prepareStatement
-                    ("insert into applyjob values(?,?,?,?,?)");
-	        ps.setString(1, fname);
-	        ps.setString(2,lname);
-	        ps.setString(3,age);
-	        ps.setString(4,gender);
-	        ps.setString(5,number);
+                    ("insert into applyjobs values(?,?,?,?,?,?,?,?,?,?,?)");
+	        ps.setString(1, jobid);
+	        ps.setString(2,cid);
+	        ps.setString(3,name);
+	        ps.setString(4,hd);
+	        ps.setString(5,tgrade);
+	        ps.setString(6, intergrade);
+	        ps.setString(7,hdgrade);
+	        ps.setString(8,idomain);
+	        ps.setString(9,exp);
+	        ps.setString(10,cnumber);
+	        ps.setString(11,email);
 	      
 	        int i = ps.executeUpdate();
 	        if(i!=0){

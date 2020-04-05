@@ -31,7 +31,7 @@ public class Edits extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
-		int sno=Integer.parseInt(request.getParameter("sno"));
+		String jobid=request.getParameter("jobid");
 		String empid=request.getParameter("id");
 		String domain=request.getParameter("domain");
 		String requiredvac=request.getParameter("vac");
@@ -54,9 +54,8 @@ public class Edits extends HttpServlet {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Ajay@123");
-			PreparedStatement ps = conn.prepareStatement("update applicants set sno=?,empid=?,domain=?,requirement=?,dates=?,priority=?,exp=?,typeof=? where sno="+sno);
-			
-	        ps.setInt(1, sno);
+			PreparedStatement ps = conn.prepareStatement("update applicant set jobid=?,empid=?,domain=?,requiredvac=?,date=?,priority=?,experience=?,atype=? where jobid="+jobid);
+			ps.setString(1, jobid);
 	        ps.setString(2, empid);
 	        ps.setString(3, domain);
 	        ps.setString(4, requiredvac);
@@ -70,6 +69,7 @@ public class Edits extends HttpServlet {
 	        if(i!=0){
 				out.println("<script language='Javascript'>");
 				out.println("window.alert('Your Details were Saved Successfully')");
+				out.println("window.location.replace('http://localhost:8090/mainproject/index1.html')");
 				out.println("</script>");
 	        }else{
 				out.println("<script language='Javascript'>");

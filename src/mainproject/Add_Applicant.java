@@ -32,6 +32,7 @@ public class Add_Applicant extends HttpServlet {
     static int y=1;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
+		String jobid=request.getParameter("jobid");
 		String empid=request.getParameter("id");
 		String domain=request.getParameter("domain");
 		String requiredvac=request.getParameter("vac");
@@ -55,8 +56,8 @@ public class Add_Applicant extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Ajay@123");
 			PreparedStatement ps = conn.prepareStatement
-                    ("insert into applicants values(?,?,?,?,?,?,?,?)");
-	        ps.setInt(1, y);
+                    ("insert into applicant values(?,?,?,?,?,?,?,?)");
+	        ps.setString(1, jobid);
 	        ps.setString(2, empid);
 	        ps.setString(3, domain);
 	        ps.setString(4, requiredvac);

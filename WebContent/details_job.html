@@ -296,20 +296,39 @@ h1
     <form action="details_job" style="border:1px solid #ccc;width:60%;position:center;margin-left: auto; margin-right: auto;background-color:	#B0E0E6">
         <div class="container" style="height:80%";>
         <div class="col-xs-7 col-sm-6 col-lg-8">
-                    <h1>Add Job Details</h1>
+                    <h1>Apply Job</h1>
+          <label for="jobid"><b>Job Id</b></label><br>
+          <input class="btn" type="text" placeholder="Job id" name="jobid" required><br>
+                    
+          <label for="cid"><b>Candidate Id</b></label><br>
+          <input class="btn" type="text" placeholder="Candidate id" name="cid" required><br>
           
-          <label for="reg"><b>Registration Id</b></label><br>
-          <input class="btn" type="text" placeholder="Registration id" name="reg" required><br>
-          
-          <label for="lname"><b>Any Experience</b></label><br>
-          <input class="btn"  type="text" placeholder="Experience" name="exp" required p><br>
+          <label for="name"><b>Name</b></label><br>
+          <input class="btn"  type="text" placeholder="Enter Full Name" name="name" required p><br>
       
-          <label for="age"><b>Domain-1</b></label><br>
-          <input class="btn"  type="text" placeholder="Domain-1" name="d1"  required ><br>
-          <label for="age"><b>Domain-2</b></label><br>
-         <input type="text" placeholder="Domain" name="d2" required><br><br>
-          <label for="contactnumber"><b>Contact Number</b></label><br>
-          <input class="btn"  type="tel" placeholder="Enter Contact Number" name="number" pattern="[7-9][0-9]{9}$" required><br>
+          <label for="hd"><b>Highest Degree</b></label><br>
+          <input class="btn"  type="text" placeholder="Highest Degree" name="hd"  required ><br>
+          
+          <label for="tgrade"><b>10th Marks</b></label><br>
+         <input type="text" placeholder="10th GPA" name="tgrade" required><br><br>
+         
+                   <label for="intergrade"><b>Inter Marks</b></label><br>
+         <input type="text" placeholder="Inter GPA" name="intergrade" required><br><br>
+         
+                   <label for="hdgrade"><b>Highest Degree Marks</b></label><br>
+         <input type="text" placeholder="HD GPA" name="hdgrade" required><br><br>
+         
+                   <label for="idomain"><b>Domain</b></label><br>
+         <input type="text" placeholder="Domain" name="idomain" required><br><br>
+         
+                   <label for="exp"><b>Experience</b></label><br>
+         <input type="text" placeholder="No of years" name="exp" required><br><br>
+         
+          <label for="cnumber"><b>Contact Number</b></label><br>
+          <input class="btn"  type="text" placeholder="Enter Contact Number" name="cnumber" pattern="[7-9][0-9]{9}$" required><br>
+          
+            <label for="email"><b>Email ID</b></label><br>
+          <input class="btn"  type="text" placeholder="Enter EMail ID" name="email" required><br>
           
             <button class="btnn" type="submit" class="signupbtn">Apply for job</button>
             <button class="btnnn" type="reset" >Reset</button>

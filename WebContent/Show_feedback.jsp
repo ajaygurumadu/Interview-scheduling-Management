@@ -3,15 +3,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+body{
+background-color:#ADEFFF;
+}
+H1
+{
+COLOR:BLUE;
+ALIGN:CENTER;
+PADDING-LEFT:5CM;
+}
+h2
+{
+COLOR:red;
+ALIGN:CENTER;
+PADDING-LEFT:12CM;
+}
+</style>
 </head>
-<body style="background-color:	#E6E6FA">
+
+<body>
 	<%@page import="java.sql.DriverManager"%>
 	<%@page import="java.sql.ResultSet"%>
 	<%@page import="java.sql.Statement"%>
@@ -28,51 +41,52 @@
 	Statement st = null;
 	ResultSet rs = null;
 	%>
+	<H1>INTERVIEW SCHEDULING MANAGEMENT</H1>
+	<h2>Mode Of Interview</h2>
+	<table align="center" cellpadding="5" cellspacing="5" border="1">
+	<tr>
 	
-	<div class="container">
-	<table class="table table-striped" >
-	<thead>
-	<tr >
-	<td><b>JobId</b></td>
-	<td><b>EmpId</b></td>
-	<td><b>Domain</b></td>
-	<td><b>Vacancies</b></td>
-	<td><b>Date</b></td>
-	<td><b>Priority</b></td>
-	<td><b>Experience</b></td>
-	<td><b>TYPE</b></td>
-	<td><b></b></td>
 	</tr>
-	</thead>
+	<tr bgcolor="#A52A2A">
+	
+	<td><b>Communication skills</b></td>
+	<td><b>Technical Skills</b></td>
+	<td><b>Leadership  Skills</b></td>
+	<td><b>Any Other Improvements </b></td>
+	</tr>
 	<%
 	try{ 
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Ajay@123");
 	st=conn.createStatement();
-	rs = st.executeQuery("select * from applicant");
+	rs = st.executeQuery("SELECT * FROM hrfeedback t1 INNER JOIN loggg t2 ON t1.cid = t2.id  ");
+	
+	
 	while(rs.next()){
 	%>
-	<tbody>
-	<tr>
-	<td><%=rs.getString(1) %></td>
+	<tr bgcolor="#DEB887">
+	
+	
 	<td><%=rs.getString(2) %></td>
 	<td><%=rs.getString(3) %></td>
 	<td><%=rs.getString(4) %></td>
 	<td><%=rs.getString(5) %></td>
-	<td><%=rs.getString(6) %></td>
-	<td><%=rs.getInt(7) %></td>
-	<td><%=rs.getString(8) %></td>
-	<td><form action="Edits.html">
-	<input type="submit" value="edit"></form></td>
-	</tr>
-	</tbody>
+	
+	
+	
+	
+
+	
+	
 	<% 
 	}
+	String sql="truncate loggg";
+	st.executeUpdate(sql);
 	
 	} catch (Exception e) {
 	e.printStackTrace();
 	}
 	%>
 	</table>
-</div>
+
 </body>
 </html>
