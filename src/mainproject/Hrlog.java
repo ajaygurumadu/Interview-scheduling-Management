@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class login
@@ -44,7 +45,7 @@ public class Hrlog extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String email = request.getParameter("id");
+        String id = request.getParameter("id");
         String pass = request.getParameter("pass");
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -54,14 +55,15 @@ public class Hrlog extends HttpServlet {
             int i=0;
             while(rs.next())
 			{
-				if(rs.getString(6).equals(email) && rs.getString(7).equals(pass)){
+				if(rs.getString(6).equals(id) && rs.getString(7).equals(pass)){
 					i++;
+					 HttpSession session=request.getSession();  
+					 session.setAttribute("username",id);
 					break;
 				}
 			}
             if(i!=0){
-				RequestDispatcher rd=request.getRequestDispatcher("index.html");
-				rd.forward(request, response);
+            	response.sendRedirect("HRmainpage.jsp?id="+id);
 			}else{
 				out.println("<script language='Javascript'>");
 				out.println("window.alert('Please Enter Valid Credentials')");

@@ -92,7 +92,7 @@ h1
 			<tr><td>Candidate Id</td><td><input class="btn" type="text" name="cid"></td></tr>
 			<tr><td>Status</td><td><input class="btn"  type="text" name="status"></td></tr>
 			<tr><td><button class="btnn" type="submit">Update Status</button></td>
-			<td><button class="btnnn" type="submit"><a href="index1.html">Go Back</a></button></td></tr>
+			<td><button class="btnnn" type="submit"><a href="HRmainpage.jsp">Go Back</a></button></td></tr>
 		</table>
 		
 	</form>

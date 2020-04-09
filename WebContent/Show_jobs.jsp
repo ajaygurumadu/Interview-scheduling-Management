@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Job Details</title>
+<title>Insert title here</title>
 
 </head>
 <body style="background-color:	#E6E6FA">
@@ -28,37 +28,44 @@
 	Connection conn = null;
 	Statement st = null;
 	ResultSet rs = null;
+	String date=java.time.LocalDate.now().toString();  
+	
+	int year= Integer.parseInt(date.substring(0, 4));
+	int month= Integer.parseInt(date.substring(5, 7));
+	int day= Integer.parseInt(date.substring(8));
+	
+
 	%>
-	<center><h2>Latest Job Notifications </h2></center>
+	<center><h2>Latest Job Notifications <%=day %></h2></center>
 	<br>
 	<br>
 	<div class="container">
 	<table  class="table table-striped">
 <thead>
 	<tr>
-	<td><b>JobId</b></td>
+	<td><b>Company Name</b></td>
 	<td><b>Domain</b></td>
 	<td><b>vacancies</b></td>
 	<td><b>last date for applying</b></td>
 	<td><b>Priority</b></td>
 	<td><b>Experience</b></td>
-	<td><b>Click below</b></td>
+	<td><b>Click bellow</b></td>
 	</tr>
 	</thead>
 	<%
 	try{ 
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Ajay@123");
 	st=conn.createStatement();
-	rs = st.executeQuery("select * from applicant");
+	rs = st.executeQuery("select * from applicants where year(date)>='"+year+"' and month(date)>='"+month+"' and day(date)>='"+day+"'");
 	while(rs.next()){
 	%>
 	<tbody>
 	<tr>
 	
-	<td><%=rs.getString(1) %></td>
+	<td><%=rs.getString(9) %></td>
 	<td><%=rs.getString(3) %></td>
 	<td><%=rs.getString(4) %></td>
-	<td><%=rs.getString(5) %></td>
+	<td><%=rs.getDate(5) %></td>
 	<td><%=rs.getString(6) %></td>
 	<td><%=rs.getString(7) %></td>
 	

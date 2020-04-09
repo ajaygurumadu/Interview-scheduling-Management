@@ -51,7 +51,7 @@ public class Admin_Update_Edit extends HttpServlet {
 	        int i = ps.executeUpdate();
 	        if(i!=0){
 				out.println("<script language='Javascript'>");
-				out.println("window.alert('Thanks for Registering')");
+				out.println("window.alert('Updated status!!!!')");
 				RequestDispatcher rd=request.getRequestDispatcher("adminhomepage.jsp");
 				rd.forward(request, response);
 	        }else{

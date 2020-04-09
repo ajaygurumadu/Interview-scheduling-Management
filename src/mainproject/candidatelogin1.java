@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class login
@@ -45,7 +46,7 @@ public class candidatelogin1 extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String email = request.getParameter("id");
+        String id = request.getParameter("id");
         String pass = request.getParameter("pass");
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -56,25 +57,21 @@ public class candidatelogin1 extends HttpServlet {
             int i=0;
             while(rs.next())
 			{
-				if(rs.getString(6).equals(email) && rs.getString(7).equals(pass)){
-				    PreparedStatement ps = conn.prepareStatement("insert into log values(?)");
-			        ps.setString(1,email);
-			        PreparedStatement ps1 = conn.prepareStatement("insert into log values(?)");
-			        ps1.setString(1,email);
-			        int j = ps.executeUpdate();
-			        int k = ps1.executeUpdate();
-					i++;
+				if(rs.getString(6).equals(id) && rs.getString(7).equals(pass)){
+					i=1;
+					 HttpSession session=request.getSession();  
+					 session.setAttribute("username",id);
 					break;
 				}
 			}
-            if(i!=0){
+            if(i==1){
             
-            	RequestDispatcher rd=request.getRequestDispatcher("candidtemainpage.html");
-				rd.forward(request, response);
+            	response.sendRedirect("candidatemainpage.jsp?id="+id);
+
 			}else{
 				out.println("<script language='Javascript'>");
 				out.println("window.alert('Please Enter Valid Credentials')");
-				out.println("window.location.replace('http://localhost:8090/mainproject/candidatelogin1.html')");
+				out.println("window.location.replace('http://localhost:8090/mainproject/candidatelogin1.jsp')");
 				out.println("</script>");
 			}
         }

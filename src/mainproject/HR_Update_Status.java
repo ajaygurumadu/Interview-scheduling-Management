@@ -51,7 +51,7 @@ public class HR_Update_Status extends HttpServlet {
 	        if(i!=0){
 				out.println("<script language='Javascript'>");
 				out.println("window.alert('Thanks for Registering')");
-				RequestDispatcher rd=request.getRequestDispatcher("index1.html");
+				RequestDispatcher rd=request.getRequestDispatcher("HRmainpage.jsp");
 				rd.forward(request, response);
 	        }else{
 				out.println("<script language='Javascript'>");

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Show HR log</title>
 
 </head>
 <body style="background-color:#AED6F1">
@@ -29,7 +29,7 @@
 	Statement st = null;
 	ResultSet rs = null;
 	%>
-	<center><h2>Latest Job Notifications </h2></center>
+	<center><h2>HR Logs</h2></center>
 	<br>
 	<br>
 	<div class="container">
@@ -62,9 +62,9 @@
 	<td><%=rs.getString(4) %></td>
 	<td><%=rs.getString(5) %></td>
 	<td><%=rs.getString(6) %></td>
-	<td><form action="Edits.html">
-	<input type="submit" value="Edit"></form></td>
-	</tr>
+	<a href="update.jsp?edit=<%=rs.getString(8)%> ">Edit</a>
+    <td> <a href="?delete=<%=rs.getString(8)%> ">Delete</a> </td>
+     </tr>
 	</tbody>
 	<% 
 	}

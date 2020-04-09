@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="java.sql.DriverManager"%>
+	<%@page import="java.sql.ResultSet"%>
+	<%@page import="java.sql.Statement"%>
+	<%@page import="java.sql.Connection"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,10 +17,11 @@
 
 </head>
 <body style="background-color:	#E6E6FA">
-	<%@page import="java.sql.DriverManager"%>
-	<%@page import="java.sql.ResultSet"%>
-	<%@page import="java.sql.Statement"%>
-	<%@page import="java.sql.Connection"%>
+	
+		<%
+String id=request.getParameter("id");
+session.setAttribute("id",id);
+%>
 	<%
 	
 	try {
@@ -31,9 +36,7 @@
 	ResultSet rs1 = null;
 	
 	%>
-	
-	
-	
+
 	<center><h2>Interview Results</h2></center>
 	<div class="container">
 	<table class="table table-striped" >
@@ -44,7 +47,7 @@
 	<td><b>Result of Interview</b></td>
 	
 	</tr>
-	
+
 </thead>
 	<%
 	
@@ -52,8 +55,7 @@
 		
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Ajay@123");
 	st=conn.createStatement();
-
-	rs = st.executeQuery("SELECT * FROM hrinterview t1 INNER JOIN log t2 ON t1.id = t2.id  ");
+	rs = st.executeQuery("SELECT * FROM hrinterview where id='"+id+"'");
 
 	while(rs.next()){
 	%>

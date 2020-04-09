@@ -33,14 +33,15 @@ public class logout extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
-          
-        request.getRequestDispatcher("mainlog.html").include(request, response);  
+        request.getRequestDispatcher("mainlog.jsp").include(request, response);  
           
         HttpSession session=request.getSession();  
-        session.invalidate();  
-          
+        session.removeAttribute("email");
+        session.invalidate();
         out.print("You are successfully logged out!");  
-          
+        response.setHeader("Cache-Control","no-cache, no-store,must-validate");
+        if(session.getAttribute("email")==null)
+        	response.sendRedirect("mainlog.jsp");
         out.close();  
 }  
 

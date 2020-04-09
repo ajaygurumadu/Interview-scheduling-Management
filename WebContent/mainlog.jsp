@@ -1,21 +1,81 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 
-
+    
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Admin Home Page</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <style type="text/css">
 
+	.btn {
+  background-color: #31BFB1;
+  border: 2px;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+  border-radius: 15px 50px; 
+}
+a {
+  color: black;
+  text-decoration:none
+}
+.btn:hover {
+  background-color: #90EE90;
+  color:  	#3CB371;
+  }
+
+body {
+  font-family: Arial;
+  color: black;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  
+}
+
+.left {
+  left: 0;
+  background-color: #9CD8E2;
+}
+
+.right {
+  right: 0;
+  background-color:#F0F8FF;
+}
+
+.centered {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  width: 550px;
+  padding-top:20%;
+  padding-bottom:10%;
+  
+}
 
 	.form-control {
 		box-shadow: none;		
@@ -188,13 +248,14 @@
 		}
 	}
 </style>
+<script type="text/javascript">
+	// Prevent dropdown menu from closing when click inside the form
+	$(document).on("click", ".navbar-right .dropdown-menu", function(e){
+		e.stopPropagation();
+	});
+</script>
+</head> 
 <body>
-<%
-if(session.getAttribute("username")==null)
-{
-	response.sendRedirect("adminlogin1.html");
-}
-%>
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header d-flex col">
 		<a class="navbar-brand" href="mainlog.html">I<b>SM</b></a>  		
@@ -207,84 +268,81 @@ if(session.getAttribute("username")==null)
 	</div>
 	<!-- Collection of nav links, forms, and other content for toggling -->
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+		<ul class="nav navbar-nav">
+			<li class="nav-item"><a href="#" class="nav-link">Home</a></li>		
+			<li class="nav-item dropdown">
+				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services <b class="caret"></b></a>
+				<ul class="dropdown-menu">					
+					<li><a href="adminlogin1.html" class="dropdown-item">Admin Login</a></li>
+					<li><a href="adminregistration1.html" class="dropdown-item">Admin Registration</a></li>
+					<li><a href="Hrlog.html" class="dropdown-item">Hr Login</a></li>
+					<li><a href="Hrreg.html" class="dropdown-item">Hr Registration</a></li>
+                    <li><a href="candidatelogin1.jsp" class="dropdown-item">Candidate Login</a></li>
+					<li><a href="cregistration1.html" class="dropdown-item">Candidate Registration</a></li>
+				</ul>
+			</li>
 
+			<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+		</ul>
 		<form class="navbar-form form-inline">
 
 		</form>
 		<ul class="nav navbar-nav navbar-right ml-auto">			
 
 			<li class="nav-item">
-			<form class="logout" action="mainlog.jsp">
-				<a href="logout"  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Logout</a>
-			</form>
+				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Login</a>
+				<ul class="dropdown-menu form-wrapper">					
+					<li>
+						<form action="candidatelogin1" method="post">
+							<p class="hint-text">Fill in this form to Login(Candidates Login) your account!</p>
+															<div class="form-group">
+								<input class="form-control" type="text" name="id" placeholder="Enter Candidate Id" required/>
+							</div>
+							<div class="form-group">
+								
+								<input class="form-control" type="password" name="pass"  placeholder="********"/ required>
+							</div>
+							<input type="submit" class="btn btn-primary btn-block" value="Login">
+						</form>
+					</li>
+				</ul>
 			</li>
 		</ul>
 	</div>
 </nav>
-  <div class="row" style="margin-left: auto; margin-right:auto; padding-left:10%; padding-top:6%;">
-  <div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
-    	<div class="card-body">
-      		<form method="get" action="ShowHR.jsp">
-				<input class="btn btn-primary" type="submit" value="HR Logs">
-			</form>
-    	</div> 
-    	</div>
-  </div>
-  <div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
-    	<div class="card-body">
-			<form method="get" action="ShowUsers.jsp">
-				<input  class="btn btn-primary" type="submit" value="User Logs">
-			</form>
-    	</div> 
-    	</div>
-   </div>
-   <div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
-    		<div class="card-body">
-				<form method="get" action="view_applications.jsp">
-				<input class="btn btn-primary" type="submit" value="View Applications">
-				</form>
-    		</div> 
-		</div>
-	</div>
-	</div>
-	<div class="row" style="margin-left: auto; margin-right:auto; padding-left:10%; padding-top:6%;">
-	<div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
-    		<div class="card-body">
-				<form method="get" action="Show.jsp">
-				<input class="btn btn-primary" type="submit" value="Manage Posted Jobs">
-				</form>
-    		</div> 
-		</div>
-	</div>
-		<div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
-    		<div class="card-body">
-				<form method="get" action="Show_result.jsp">
-				<input class="btn btn-primary" type="submit" value="Result of interview">
-				</form>
-    		</div> 
-		</div>
-	</div>
-			<div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
-    		<div class="card-body">
-				<form method="get" action="Admin_Update_Status.jsp">
-				<input class="btn btn-primary" type="submit" value="Update Status">
-				</form>
-    		</div> 
-		</div>
-	</div>
+
+<div class="split left">
+  <div class="centered">
+<img src="image.jpg">
+
+
 </div>
+  </div>
+</div>
+<div class="container"> 
+<div class="split right">
+  <div class="centered">
+   <div class="text-center">
+
+  <div>
+    
+    <strong><i><h1>Interview Scheduling Management</h1></i></strong>
+
+  <p style="color:#888;">Powered By TEAM</p>
+</div>
+
+  <div class="row">
+    <div class="col-md-12 text-">
+      <h3>Here We go !</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div  class="btn" > <a href="adminlogin1.html">Admin</a> </div>
+    <div  class="btn"><a href="Hrlog.html" >HR</a> </div> 
+    <div  class="btn"><a href="candidatelogin1.jsp" >Candidate</a> </div> 
+  </div>
+</div>
+
+
 </body>
-</body>
-</html>
+</html>                                                                                    

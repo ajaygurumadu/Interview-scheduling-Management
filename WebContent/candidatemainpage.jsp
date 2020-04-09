@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin Home Page</title>
+<title>Candidate Home Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -190,9 +188,13 @@
 </style>
 <body>
 <%
+String id=request.getParameter("id");
+session.setAttribute("id",id);
+%>
+<%
 if(session.getAttribute("username")==null)
 {
-	response.sendRedirect("adminlogin1.html");
+	response.sendRedirect("candidatelogin1.jsp");
 }
 %>
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
@@ -221,65 +223,44 @@ if(session.getAttribute("username")==null)
 		</ul>
 	</div>
 </nav>
-  <div class="row" style="margin-left: auto; margin-right:auto; padding-left:10%; padding-top:6%;">
-  <div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
+<center><h2>Welcome ${id}</h2></center>
+  <div class="row" style="margin-left: auto; margin-right:auto; padding-left:5%; padding-top:6%;">
+  <div class="col-xs-3 col-sm-3 col-lg-3">
+  		<div class="card w-100 p-2" style="width:400px">
+    		<img class="card-img-top" src="viewjobs.jpeg" alt="Card image" style="width:100%">
     	<div class="card-body">
-      		<form method="get" action="ShowHR.jsp">
-				<input class="btn btn-primary" type="submit" value="HR Logs">
+      		<form method="get" action="Show_jobs.jsp">
+				<input class="btn btn-primary" type="submit" value="View Jobs">
 			</form>
     	</div> 
     	</div>
   </div>
-  <div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
+  <div class="col-xs-3 col-sm-3 col-lg-3">
+  		<div class="card w-100 p-2" style="width:400px">
+    		<img class="card-img-top" src="interviewmode.jpeg" alt="Card image" style="width:100%">
     	<div class="card-body">
-			<form method="get" action="ShowUsers.jsp">
-				<input  class="btn btn-primary" type="submit" value="User Logs">
+			<form method="post" action="Show_mode.jsp?id=${id}">
+				<input  class="btn btn-primary" type="submit" value="Interview Mode">
 			</form>
     	</div> 
     	</div>
    </div>
-   <div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
+   <div class="col-xs-3 col-sm-3 col-lg-3">
+  		<div class="card w-100 p-2" style="width:400px">
+    		<img class="card-img-top" src="interviewresult.jpeg" alt="Card image" style="width:100%">
     		<div class="card-body">
-				<form method="get" action="view_applications.jsp">
-				<input class="btn btn-primary" type="submit" value="View Applications">
-				</form>
-    		</div> 
-		</div>
-	</div>
-	</div>
-	<div class="row" style="margin-left: auto; margin-right:auto; padding-left:10%; padding-top:6%;">
-	<div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
-    		<div class="card-body">
-				<form method="get" action="Show.jsp">
-				<input class="btn btn-primary" type="submit" value="Manage Posted Jobs">
-				</form>
-    		</div> 
-		</div>
-	</div>
-		<div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
-    		<div class="card-body">
-				<form method="get" action="Show_result.jsp">
+				<form method="post" action="Show_result.jsp?id=${id}">
 				<input class="btn btn-primary" type="submit" value="Result of interview">
 				</form>
     		</div> 
 		</div>
 	</div>
-			<div class="col-xs-4 col-sm-4 col-lg-4">
-  		<div class="card w-75 p-3" style="width:400px">
-    		<img class="card-img-top" src="viewjobs.jpg" alt="Card image" style="width:100%">
+	   <div class="col-xs-3 col-sm-3 col-lg-3">
+  		<div class="card w-100 p-2" style="width:400px">
+    		<img class="card-img-top" src="interviewresult.jpeg" alt="Card image" style="width:100%">
     		<div class="card-body">
-				<form method="get" action="Admin_Update_Status.jsp">
-				<input class="btn btn-primary" type="submit" value="Update Status">
+				<form method="post" action="Show_Status.jsp?id=${id}">
+				<input class="btn btn-primary" type="submit" value="Track Application Status">
 				</form>
     		</div> 
 		</div>

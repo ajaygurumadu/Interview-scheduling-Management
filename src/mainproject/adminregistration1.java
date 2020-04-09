@@ -42,8 +42,7 @@ public class adminregistration1 extends HttpServlet {
     	try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Ajay@123");
-			PreparedStatement ps = conn.prepareStatement
-                    ("insert into adminlog values(?,?,?,?,?,?,?)");
+			PreparedStatement ps = conn.prepareStatement("insert into adminlog values(?,?,?,?,?,?,?)");
 	        ps.setString(1, fname);
 	        ps.setString(2,lname);
 	        ps.setString(3,age);

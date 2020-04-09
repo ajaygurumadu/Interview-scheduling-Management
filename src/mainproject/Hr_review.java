@@ -89,7 +89,10 @@ public class Hr_review extends HttpServlet {
 	        
 	        int i = ps.executeUpdate();
 	        if(i!=0){
-	        	out.println("Submitted");
+	        	out.println("<script language='Javascript'>");
+				out.println("window.alert('Submitted')");
+				out.println("window.location.replace('http://localhost:8090/mainproject/HRmainpage.jsp')");
+				out.println("</script>");
 	        }else{
 	        	out.println("not Submitted");
 	        }

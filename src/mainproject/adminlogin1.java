@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.*;
+import java.util.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -49,7 +50,7 @@ public class adminlogin1 extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String email = request.getParameter("id");
+        String id = request.getParameter("id");
         String pass = request.getParameter("pass");
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -59,21 +60,19 @@ public class adminlogin1 extends HttpServlet {
             int i=0;
             while(rs.next())
 			{
-				if(rs.getString(6).equals(email) && rs.getString(7).equals(pass)){
+				if(rs.getString(6).equals(id) && rs.getString(7).equals(pass)){
 					i++;
 					 HttpSession session=request.getSession();  
-					 session.setAttribute("id",email);
+					 session.setAttribute("username",id);
 					break;
 				}
 			}
             if(i!=0){
-				RequestDispatcher rd=request.getRequestDispatcher("index.html");
-				
-				rd.forward(request, response);
+				response.sendRedirect("adminhomepage.jsp");
 			}else{
 				out.println("<script language='Javascript'>");
 				out.println("window.alert('Please Enter Valid Credentials')");
-				out.println("window.location.replace('http://localhost:8090/mainproject/adminhomepage.jsp')");
+				out.println("window.location.replace('http://localhost:8090/mainproject/adminlogin1.html')");
 				out.println("</script>");
 			}
         }

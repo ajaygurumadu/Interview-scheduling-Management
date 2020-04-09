@@ -2,8 +2,15 @@ package mainproject;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,25 +25,17 @@ import javax.servlet.http.HttpServletResponse;
 public class Add_Applicant extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Add_Applicant() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-    static int y=1;
+   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
+		String cname=request.getParameter("cname");
 		String jobid=request.getParameter("jobid");
-		String empid=request.getParameter("id");
+		String id=request.getParameter("id");
 		String domain=request.getParameter("domain");
 		String requiredvac=request.getParameter("vac");
-		String date=request.getParameter("date");
+		SimpleDateFormat formatter ; 
+        formatter = new SimpleDateFormat("yyyy-MM-dd");
+
 		
 		String priority=request.getParameter("priority");
 		int experience=Integer.parseInt(request.getParameter("exp"));
@@ -55,20 +54,34 @@ public class Add_Applicant extends HttpServlet {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","Ajay@123");
+			Statement st = conn.createStatement();
+			String sql= "select * from applicants";
+			ResultSet rs= st.executeQuery(sql);
+			
+			java.util.Date date=formatter.parse(request.getParameter("date"));
+			
+			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+			
 			PreparedStatement ps = conn.prepareStatement
-                    ("insert into applicant values(?,?,?,?,?,?,?,?)");
+                    ("insert into applicants values(?,?,?,?,?,?,?,?,?)");
+	 
 	        ps.setString(1, jobid);
-	        ps.setString(2, empid);
+	        ps.setString(2, id);
 	        ps.setString(3, domain);
 	        ps.setString(4, requiredvac);
-	        ps.setString(5, date);
+	        
+	        ps.setDate(5, sqlDate);
 	        ps.setString(6,priority);
 	        ps.setInt(7,experience);
 	        ps.setString(8,type);
+	        ps.setString(9,cname);
 	        
 	        int i = ps.executeUpdate();
 	        if(i!=0){
-	        	out.println("Submitted");
+	        	out.println("<script language='Javascript'>");
+				out.println("window.alert('Submitted.....Every candidate wll be notified!')");
+				out.println("window.location.replace('HRmainpage.jsp')");
+				out.println("</script>");
 	        }else{
 	        	out.println("not Submitted");
 	        }
@@ -86,4 +99,7 @@ public class Add_Applicant extends HttpServlet {
 	}
 
 }
+
+
+
 

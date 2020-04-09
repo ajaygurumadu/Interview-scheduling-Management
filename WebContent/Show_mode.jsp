@@ -19,6 +19,10 @@
 	<%@page import="java.sql.Statement"%>
 	<%@page import="java.sql.Connection"%>
 	<%
+String id=request.getParameter("id");
+session.setAttribute("id",id);
+%>
+	<%
 	
 	try {
 	Class.forName("com.mysql.jdbc.Driver");
@@ -45,7 +49,7 @@
 	try{ 
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Ajay@123");
 	st=conn.createStatement();
-	rs = st.executeQuery("SELECT * FROM hrinterview t1 INNER JOIN log t2 ON t1.id = t2.id  ");
+	rs = st.executeQuery("SELECT * FROM hrinterview where id="+id+"");
 	
 	
 	while(rs.next()){
@@ -56,8 +60,6 @@
 	<td><%=rs.getString(9) %></td>
 	<% 
 	}
-	String sql="truncate log";
-	st.executeUpdate(sql);
 	
 	} catch (Exception e) {
 	e.printStackTrace();

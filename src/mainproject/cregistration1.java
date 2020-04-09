@@ -56,7 +56,7 @@ public class cregistration1 extends HttpServlet {
 	        	out.println("Submitted");
 				out.println("<script language='Javascript'>");
 				out.println("window.alert('Thanks for Registering')");
-				RequestDispatcher rd=request.getRequestDispatcher("cregistration1.html");
+				RequestDispatcher rd=request.getRequestDispatcher("candidatelogin.jsp");
 				rd.forward(request, response);
 	        }else{
 				out.println("<script language='Javascript'>");

@@ -262,7 +262,7 @@ h1
 <body>
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header d-flex col">
-		<a class="navbar-brand" href="mainlog.html">I<b>SM</b></a>  		
+		<a class="navbar-brand" href="mainlog.jsp">I<b>SM</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
 			<span class="navbar-toggler-icon"></span>
 			<span class="icon-bar"></span>
@@ -273,7 +273,7 @@ h1
 	<!-- Collection of nav links, forms, and other content for toggling -->
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<ul class="nav navbar-nav">
-			<li class="nav-item"><a href="index1.html" class="nav-link">Home</a></li>		
+			<li class="nav-item"><a href="HRmainpage.html" class="nav-link">Home</a></li>		
 
 			<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
 		</ul>
@@ -281,7 +281,7 @@ h1
 </nav>
 
 
-	<form method="get" action="Add_Applicant" style="border:1px solid #ccc">
+<form method="post" action="Add_Applicant" style="border:1px solid #ccc">
 	 <div class="container">
 	 <h1><b><i>Insert New Job</i></b></h1>
 		<table align="center" width="50%" margin-left="auto" margin-right="auto">
@@ -289,11 +289,12 @@ h1
 			<tr><td>Employee Id</td><td><input class="btn" type="text" name="id" required></td></tr>
 			<tr><td>Domain</td><td><input class="btn"  type="text" name="domain" required></td></tr>
 			<tr><td>Required vacancies</td><td><input class="btn"  type="text" name="vac" required></td></tr>
-			<tr><td>Closing Date</td><td><input class="btn" type="text" name="date" required></td></tr> 
+			<tr><td>Closing Date</td><td><input class="btn" type="date" name="date" required></td></tr> 
 				<tr><td>Priority</td><td><input  class="btn" type="text" name="priority" required></td></tr> 
-				<tr><td>Minimum experience</td><td><input class="btn"  type="text" name="exp" required></td></tr> 
+				<tr><td>Minimum experience</td><td><input class="btn"  type="text" name="exp" required></td></tr>
+				<tr><td>Company Name</td><td><input class="btn" type="text" name="cname" required></td></tr> 
 			   <tr><td><button class="btnn" type="submit">Add Job</button></td>
-			   <td><button class="btnnn" type="submit"><a href="index1.html">Go Back</a></button></td></tr>
+			   <td><button class="btnnn" type="submit"><a href="HRmainpage.jsp">Go Back</a></button></td></tr>
 		</table>
 		
 	</form>

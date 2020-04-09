@@ -48,7 +48,7 @@
 	try{ 
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "Ajay@123");
 	st=conn.createStatement();
-	rs = st.executeQuery("select * from applicant");
+	rs = st.executeQuery("select * from applicants");
 	while(rs.next()){
 	%>
 	<tbody>
